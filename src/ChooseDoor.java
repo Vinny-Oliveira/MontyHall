@@ -4,7 +4,6 @@ public class ChooseDoor {
 	
     public static void main(String[] args) {
 
-         
     	Scanner scan = new Scanner(System.in);
         System.out.println("Enter how many games:"); 
         int intNumberOfGames = scan.nextInt();
@@ -15,23 +14,22 @@ public class ChooseDoor {
         if (intNumberOfGames < 1) { return; }
         
         int intSwitchAndWin = 0;
-        int intNotSwitchAndWin = 0;
+        int intWin = 0;
         
         for (int i = 0; i < intNumberOfGames; i++) {
         	boolean gameResult[] = playGame();
         	
-        	if (gameResult[0] && gameResult[1]) {
-        		intSwitchAndWin++;
-        	} else if (!gameResult[0] && gameResult[1]) {
-        		intNotSwitchAndWin++;
+        	if (gameResult[1]) { // If you win
+        		intWin++;
+        		if (gameResult[0]) {
+        			intSwitchAndWin++;
+        		}
         	}
         }
         
-        double ratioSwitchAndWin = (double)intSwitchAndWin / (double)intNumberOfGames;
-//        double ratioNotSwitchAndWin = (double)intNotSwitchAndWin / (double)intNumberOfGames;
+        double ratioSwitchAndWin = (double)intSwitchAndWin / (double)intWin;
         
         System.out.println("Ratio for switching and winning: " + ratioSwitchAndWin);
-//        System.out.println("Ratio for not switching and winning: " + ratioNotSwitchAndWin);
         
     }
     
@@ -73,11 +71,7 @@ public class ChooseDoor {
     	// Check if the player made the right choice
     	if (intChoice == intCarDoor) {
     		blnWin = true;
-    		// System.out.println("You win!");
         } 
-        // else {
-    	// 	System.out.println("You lose...");
-        // }
         
     	result[0] = blnSwitch;
     	result[1] = blnWin;
