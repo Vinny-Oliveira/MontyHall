@@ -3,7 +3,7 @@
 public class ChooseDoor {
 	
     public static void main(String[] args) {
-    	boolean blnWin = false;
+    	// boolean blnWin = false;
     	int intNumberOfDoors = 3;
     	
         int intCarDoor = (int)(Math.random() * intNumberOfDoors + 1); // Door where the car is
@@ -36,7 +36,7 @@ public class ChooseDoor {
     	
     	// Check if the player made the right choice
     	if (intChoice == intCarDoor) {
-    		blnWin = true;
+    		// blnWin = true;
     		System.out.println("You win!");
     	} else {
     		System.out.println("You lose...");
